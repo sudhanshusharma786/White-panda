@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+   
+</head>
+
+<body>
+    <div class="auto-style6" >
+    <form id="form1" runat="server">
+    <ul>
+        <li><asp:Label ID="Label_Welcome" runat="server" class="hello" Visible="False"></asp:Label></li>
+        <li><asp:Label ID="Label4" runat="server" class="hello" Text="White Panda"></asp:Label></li>
+        <li><asp:HyperLink ID="HyperLink2"  runat="server" NavigateUrl="~/User.aspx">~~~~~~~~~~</asp:HyperLink></li>
+        <li><asp:HyperLink ID="HyperLink1" class="active" runat="server" NavigateUrl="~/Change_Password.aspx">Content Store</asp:HyperLink></li>
+        <li style="float:right"><asp:LinkButton ID="Logout" runat="server" OnClick="B_Logout_Click" Text="Logout" class="hello" BackColor="Transparent"/></li>
+    </ul>
+
+            <br />
+           
+            <br />
+            <br />
+       
+        <asp:Label ID="Label1" runat="server" CssClass="auto-style2" Text="Got bulk orders or almost similar orders? Fill the order brief in an excel sheet"></asp:Label>
+        <br/>
+        <asp:Label ID="Label3" runat="server" CssClass="auto-style9" Text="If you're wondering about an easy way to place orders in large numbers, we provide a way customized just for that. Download our excel sheet and fill the order brief in the prescribed format and submit."></asp:Label>
+        <br />
+        <br />
+        <asp:Image ID="Image2" runat="server" Height="64px" ImageUrl="~/Logos/micro.jpg" Width="130px"/>
+        <br />
+        <br/>
+        <br/>
+       
+        <div class="auto-style6">
+        <asp:DataList ID="DataList1" runat="server" DataKeyField="MovieId" DataSourceID="SqlDataSource1" GridLines="Both" RepeatColumns="4" RepeatDirection="Horizontal" Width="1236px" class="ooo" OnItemCommand="DataList1_ItemCommand" OnSelectedIndexChanged="DataList1_SelectedIndexChanged" CssClass="auto-style13">
+            <ItemTemplate>
+                <table class="auto-style3">
+                    <tr>
+                        <td class="auto-style4">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Image ID="Image1" runat="server" CssClass="auto-style7" Height="31px" ImageUrl='<%# Eval("Picture") %>' Width="30px" />
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Label ID="Label2" runat="server" CssClass="auto-style10" Text='<%# Eval("MovieName") %>'></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style5">
+                            <asp:Label ID="Label3" runat="server" CssClass="auto-style11" Text='<%# Eval("AboutMovie") %>'></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style12">
+                            <asp:Button ID="Button1" runat="server" CssClass="auto-style7" Text="Order" CommandName="MovieDetails" OnClick="Button1_Click"  CommandArgument='<%# Eval("MovieId") %>'  />
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+            </ItemTemplate>
+        </asp:DataList>
+        </div>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:RegistrationConnectionString %>" SelectCommand="SELECT * FROM [Table4]"></asp:SqlDataSource>
+    </form>
+        </div>
+</body>
+
+<style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url(Back_Work/19.jpg);
+            background-size: cover;
+            font-family: sans-serif;
+           
+           
+        }
+        .ooo {
+            position:relative;
+            left: 180px;
+        }
+        .auto-style2 {
+            font-size: x-large;
+        font-family: SimSun-ExtB;
+        font-weight: bold;
+        color: #00FFFF;
+    }
+        .auto-style3 {
+            width: 100%;
+            height: 260px;
+        }
+        .auto-style4 {
+            height: 28px;
+            text-align: center;
+        width: 545px;
+    }
+        .auto-style5 {
+            height: 169px;
+            text-align: left;
+        width: 545px;
+    }
+        .auto-style6 {
+            text-align: center;
+        }
+        .auto-style7 {
+            font-weight: bold;
+            font-size: large;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #1b9fb1;
+           
+        }
+
+        li {
+            float: left;
+            border-right:1px solid #bbb;
+        }
+
+        li:last-child {
+            border-right: none;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active {
+        background-color: #4CAF50;
+        }
+        .hello {
+        display: block;
+        color: white;
+       
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none
+        }
+        hello:hover {
+            background-color: #111;
+        }
+    .auto-style9 {
+        font-size: large;
+        font-family: SimSun-ExtB;
+        font-weight: bold;
+        color: #800000;
+    }
+    .auto-style10 {
+        font-weight: bold;
+        font-size: x-large;
+        color: #800000;
+    }
+    .auto-style11 {
+        font-weight: bold;
+        font-size: medium;
+    }
+    .auto-style12 {
+        text-align: center;
+        width: 545px;
+    }
+    .auto-style13 {
+        left: 180px;
+        top: 0px;
+    }
+    </style>    
+
+
+</html>
